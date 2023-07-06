@@ -9,4 +9,4 @@ domain_name = "mydomain.com"
 record_name = "www.mydomain.com"
 record_type = "A"
 record_ttl = "300"
-record_ip = "1.2.3.4"
+record_ip = ["1.2.3.4"]
