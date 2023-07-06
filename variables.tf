@@ -55,5 +55,6 @@ variable "record_ttl" {
 
 variable "record_ip" {
   description = "IP address for the Route53 DNS record"
-  default     = "1.2.3.4"
+  type        = set(string)
+  default     = ["1.2.3.4"]
 }
