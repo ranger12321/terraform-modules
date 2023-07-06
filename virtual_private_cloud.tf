@@ -1,6 +1,6 @@
 # Create VPC
 resource "aws_vpc" "my_vpc" {
-  cidr_block = "10.0.0.0/16"  # Replace with your desired VPC CIDR block
+  cidr_block = var.vpc_cidr_block  # Replace with your desired VPC CIDR block
 
   tags = {
     Name = "MyVPC"
@@ -10,8 +10,8 @@ resource "aws_vpc" "my_vpc" {
 # Create public subnet
 resource "aws_subnet" "public_subnet" {
   vpc_id                  = aws_vpc.my_vpc.id
-  cidr_block              = "10.0.1.0/24"  # Replace with your desired public subnet CIDR block
-  availability_zone       = "us-east-1a"  # Replace with your desired availability zone
+  cidr_block              = var.public_subnet_cidr_block  # Replace with your desired public subnet CIDR block
+  availability_zone       = var.availability_zone_public  # Replace with your desired availability zone
 
   tags = {
     Name = "PublicSubnet"
@@ -21,8 +21,8 @@ resource "aws_subnet" "public_subnet" {
 # Create private subnet 1
 resource "aws_subnet" "private_subnet_1" {
   vpc_id                  = aws_vpc.my_vpc.id
-  cidr_block              = "10.0.2.0/24"  # Replace with your desired private subnet CIDR block
-  availability_zone       = "us-east-1a"  # Replace with your desired availability zone
+  cidr_block              = var.private_subnet_1_cidr_block  # Replace with your desired private subnet CIDR block
+  availability_zone       = var.availability_zone_private_1  # Replace with your desired availability zone
 
   tags = {
     Name = "PrivateSubnet1"
@@ -32,8 +32,8 @@ resource "aws_subnet" "private_subnet_1" {
 # Create private subnet 2
 resource "aws_subnet" "private_subnet_2" {
   vpc_id                  = aws_vpc.my_vpc.id
-  cidr_block              = "10.0.3.0/24"  # Replace with your desired private subnet CIDR block
-  availability_zone       = "us-east-1b"  # Replace with your desired availability zone
+  cidr_block              = var.private_subnet_2_cidr_block  # Replace with your desired private subnet CIDR block
+  availability_zone       = var.availability_zone_private_2  # Replace with your desired availability zone
 
   tags = {
     Name = "PrivateSubnet2"
