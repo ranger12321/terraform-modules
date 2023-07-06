@@ -9,5 +9,5 @@ resource "aws_route53_record" "my_record" {
   name    = var.record_name  # Replace with your desired record name
   type    = var.record_type
   ttl     = var.record_ttl
-  records = ["1.2.3.4"]  # Replace with the desired IP address
+  records = var.record_ip  # Replace with the desired IP address
 }
